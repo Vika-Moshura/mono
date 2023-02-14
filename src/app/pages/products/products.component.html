@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="line">
+    </div>
+    <h1 class="title">
+      {{category}}
+    </h1>
+    <div class="section">
+      <div class="wrapper">
+        <a class="tab">Всі</a>
+        <a class="tab">Філадельфія</a>
+        <a class="tab">Каліфорнія</a>
+        <a class="tab">Запечені</a>
+        <a class="tab">Фірмові</a>
+        <a class="tab">Макі</a>
+        <a class="tab">Преміум</a>
+      </div>
+    </div>
+    <h2 class="title" *ngIf="userProducts.length==0">
+      Вибачте, товарів наразі немає
+    </h2>
+    <div class="products" *ngIf="userProducts.length>0">
+      <div class="product" *ngFor="let product of userProducts">
+        <img [routerLink]="[ '/products/'+product.category.path, product.id]" routerLinkActive="active" [src]="product.imagePath" alt="" width="300px" height="150px">
+        <h4 [routerLink]="[ '/products/'+product.category.path, product.id]" routerLinkActive="active" >{{product.name}}</h4>
+        <div class="wrapper">
+          <div>{{product.ingredients}}</div>
+          <div>{{product.weight}}</div>
+        </div>
+        <div class="wrapper">
+          <p>{{product.price*product.count}} грн</p>
+          <div class="addition">
+            <span class="minus" (click)="addProduct(product, false)">-</span>
+            <input type="text" [value]="product.count">
+            <span class="plus" (click)="addProduct(product, true)">+</span>
+          </div>
+          <div class="order" (click)="addToBasket(product)">Замовити</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

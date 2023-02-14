@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="display">
+    <a [routerLink]="[ 'info' ]" routerLinkActive="active">Особисті дані</a>
+    <a [routerLink]="[ 'orders' ]" routerLinkActive="active">Історія замовлень</a>
+    <a [routerLink]="[ 'password' ]" routerLinkActive="active">Зміна паролю</a>
+    <a [routerLink]="[ '/' ]" routerLinkActive="active"(click)="logOut()">Вийти з кабінету</a>
+  </div>
+  <router-outlet></router-outlet>
+</div>

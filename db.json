@@ -1,0 +1,165 @@
+{
+  "discounts": [
+    {
+      "date": "2023-01-09T19:27:03.090Z",
+      "name": "samovyviz",
+      "title": "Самовивіз",
+      "description": "Забирайте своє замовлення самостійно та отримуйте такі переваги:\n\nЗапечені моно макі з лососем у подарунок.\nВідсутність мінімальної суми замовлення.\nЧас очікування на замовлення до 30 хв.\nДля отримання акційного ролу у подарунок зберігається умова мінімальної суми замовлення 300 грн.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fimgonline-com-ua-compressed-pa0akdpwddstmsv1-scaled-697x379.jpg?alt=media&token=d3658c31-271b-41cb-971d-ee96da09caad",
+      "id": 1
+    },
+    {
+      "date": "2023-01-09T19:31:04.956Z",
+      "name": "fotomarafon",
+      "title": "Фотомарафон",
+      "description": "Розіграш проводиться в соціальній мережі – Instagram.\nЩоб стати учасником розіграшу варто зробити будь-який контент на задану тему з нашими ролами. Це може бути фото, відео, tik-tok.\nОбов’язково позначай нас на пості або сторі, щоб стати учасником марафону. ( інакше ми вас не побачимо )\nМарафон діє на постійній основі.\nПереможці визначаються два рази на місяць.\nПерше місце-Запечений сирний з лососем.\nДруге місце-Філадельфія з лососем.\nТретє місце-Запечені моно макі з креветкою.\nДеталі актуального марафону уточнюйте в нашому Instagram: @monosushi.com.ua",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fimgonline-com-ua-compressed-tn6e51pounmi-scaled-697x379.jpg?alt=media&token=2cb693f5-5859-463a-b5a9-91940acb2fc5",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Роли",
+      "path": "rolls",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fsushi.svg?alt=media&token=0593d081-5cdc-4593-b3f3-95545d4d1bed",
+      "id": 1
+    },
+    {
+      "name": "Сети",
+      "path": "sets",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=9224d679-a2f8-43cf-881c-5ea4ff6b9b98",
+      "id": 2
+    },
+    {
+      "name": "Напої",
+      "path": "drinks",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fnav-img-drinks.svg?alt=media&token=9e582ff8-5ddd-4a08-bc23-a15f29fffac8",
+      "id": 3
+    },
+    {
+      "name": "Соуси",
+      "path": "sauces",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Ficon.svg?alt=media&token=ec87db25-12c7-4212-8767-09eb7ba09ee4",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fsushi.svg?alt=media&token=0593d081-5cdc-4593-b3f3-95545d4d1bed",
+        "id": 1
+      },
+      "name": "Мексиканський – 50%",
+      "path": "meksykanskyj-50",
+      "ingredients": "Рис, крем сир, креветка, огірок, кунжут, лосось, гуакамоле, шрірача",
+      "weight": "370 г",
+      "price": 190,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2F4.-meksykanskyj.jpg?alt=media&token=efe991c0-ad3f-4f94-91ca-aa94040ef497",
+      "count": 1,
+      "id": 1
+    },
+    {
+      "category": {
+        "name": "Сети",
+        "path": "sets",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fnav-img-sets.svg?alt=media&token=9224d679-a2f8-43cf-881c-5ea4ff6b9b98",
+        "id": 2
+      },
+      "name": "Сет Філадельфія",
+      "path": "zapechenyj-set",
+      "ingredients": "Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+      "weight": "1070 г",
+      "price": 999,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fimgonline-com-ua-compressed-jknw6idh54664-scaled.jpg.pagespeed.ce.4A9elt-ybs.jpg?alt=media&token=62f045c6-7154-4ec1-b253-eb738c96553f",
+      "count": 1,
+      "id": 2
+    },
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fsushi.svg?alt=media&token=0593d081-5cdc-4593-b3f3-95545d4d1bed",
+        "id": 1
+      },
+      "name": "Філадельфія з лососем",
+      "path": "filadelfiya-z-lososem",
+      "ingredients": "Риc, крем сир, огірок, лосось",
+      "weight": "280 г",
+      "price": 247,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=1b040f17-ce5c-463d-8965-60e5f7c8f650",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fsushi.svg?alt=media&token=0593d081-5cdc-4593-b3f3-95545d4d1bed",
+        "id": 1
+      },
+      "name": "Філадельфія грін з креветкою",
+      "path": "filadelfiya-grin-z-krevetkoyu",
+      "ingredients": "Рис, крем сир, огірок, креветка, авокадо, унагі соус",
+      "weight": "270 г",
+      "price": 279,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2F7.-filadelfiya-grin-z-krevetkoyu.jpg.pagespeed.ce.1HZXmXbE4G.jpg?alt=media&token=a814f059-e162-4af7-8192-00cb973d51f5",
+      "count": 1,
+      "id": 4
+    },
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fsushi.svg?alt=media&token=0593d081-5cdc-4593-b3f3-95545d4d1bed",
+        "id": 1
+      },
+      "name": " Сирний",
+      "path": "syrnyj",
+      "ingredients": "Рис, крем сир, фета, кунжут",
+      "weight": "240 г",
+      "price": 164,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2F01.-syrnyj.jpg.pagespeed.ce.H76YcCbCou.jpg?alt=media&token=89b44c2e-5ef0-4599-a63e-71dd8c1ead8a",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "category": {
+        "name": "Роли",
+        "path": "rolls",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2Fsushi.svg?alt=media&token=0593d081-5cdc-4593-b3f3-95545d4d1bed",
+        "id": 1
+      },
+      "name": "Каліфорнія з креветкою",
+      "path": "kaliforniya-z-krevetkoyu",
+      "ingredients": "Рис, спайсі соус, авокадо, огірок, креветка, кунжут",
+      "weight": "250 г",
+      "price": 243,
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-sushi-2009e.appspot.com/o/images%2F2.1-kaliforniya-z-krevetkoyu-v-kunzhuti.jpg.pagespeed.ce.3EGBetR90R.jpg?alt=media&token=bafe19b9-642a-418e-b3fd-1dcb134cf345",
+      "count": 1,
+      "id": 6
+    }
+  ],
+  "auth": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "qwerty123",
+      "name": "Petro",
+      "surname": "Petriv",
+      "phone_number": "+380668909345",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "qwerty123",
+      "name": "Dmitro",
+      "surname": "Petriv",
+      "phone_number": "+380668909345",
+      "role": "USER"
+    }
+  ],
+  "orders": []
+}

@@ -1,0 +1,17 @@
+<form class="form" [formGroup]="callForm">
+    <h2>Ми зателефонуємо</h2>
+    <p>Залиште номер телефону і наші менеджери зв'яжуться з вами</p>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Ваше ім'я</mat-label>
+        <input matInput type="text" formControlName="firstName">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Ваш номер телефону</mat-label>
+        <input matInput type="tel" formControlName="phoneNumber">
+      </mat-form-field>
+    </div>
+    <button type="button" mat-raised-button mat-dialog-close color="primary" (click)="sendRequest()">Надіслати</button>
+  </form>

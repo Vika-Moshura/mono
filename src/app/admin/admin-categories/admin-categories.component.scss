@@ -1,0 +1,67 @@
+@import '../../shared/styles/variables';
+
+button {
+  background-color: $primary;
+  border: 2px solid black;
+  width: 20%;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  cursor: pointer;
+  display: block;
+
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  p {
+    color: $primary;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.form {
+  height: 90%;
+  width: 100%;
+
+  input {
+    height: 50px;
+    display: block;
+    width: 50%;
+    margin-bottom: 30px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  textarea {
+    width: 50%;
+    resize: none;
+    margin-bottom: 30px;
+    height: 100px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  progress {
+    display: block;
+    width: 50%;
+    height: 30px;
+    margin-bottom: 30px;
+  }
+}

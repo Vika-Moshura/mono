@@ -1,0 +1,18 @@
+<div class="product">
+  <div><img class="product_picture" [src]="product.imagePath" [alt]="product.imagePath">
+  </div>
+  <div class="product_info">
+    <h2>{{product.name}}</h2>
+    <p><span class="product_highlight">Склад:</span> {{product.ingredients}}</p>
+    <p><span class="product_highlight">Вага:</span> {{product.weight}}</p>
+    <div class="product_bar">
+      <p>{{product.price * product.count}} грн</p>
+      <div class="addition">
+        <span class="minus" (click)="addProduct(product, false)">-</span>
+        <input type="text" [value]="product.count">
+        <span class="plus" (click)="addProduct(product, true)">+</span>
+      </div>
+      <div class="order" (click)="addToBasket(product)">Замовити</div>
+    </div>
+  </div>
+</div>

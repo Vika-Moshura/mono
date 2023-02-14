@@ -1,0 +1,203 @@
+@import '../../shared/styles/variables';
+
+.container {
+  width: 55%;
+  margin: 15vh auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    width: 100%;
+
+    .products {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 3%;
+
+      &_info {
+        width: 100%;
+        font-size: 18px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+
+        .name {
+          width: 20%;
+        }
+
+        .wrapper {
+          display: flex;
+          justify-content: space-between;
+          width: 60%;
+
+          .addition {
+            width: 30%;
+
+            input {
+              width: 30px;
+              text-align: center;
+              margin: 0 10%;
+            }
+
+            .minus,
+            .plus {
+              text-align: center;
+              border-radius: 15%;
+
+              &:hover {
+                background-color: $primary;
+              }
+            }
+          }
+
+          .bin {
+            color: gray;
+          }
+        }
+      }
+
+      .total {
+        align-self: flex-end;
+      }
+    }
+
+    .cutleries {
+      margin: 3% 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      select {
+        width: 40%;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+
+    .payment {
+      margin: 3% 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+
+      label {
+        margin-right: 3%;
+      }
+    }
+
+    .delivery {
+      margin-top: 3%;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      label {
+        margin-right: 3%;
+      }
+    }
+
+    .row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        display: block;
+        width: 40%;
+        height: 40px;
+        margin: 2% 0;
+        cursor: pointer;
+      }
+    }
+    .comments {
+      margin: 3% 0;
+      width: 100%;
+      label {
+        margin-right: 3%;
+        cursor: pointer;
+
+      }
+    }
+    .comment {
+      width: 100%;
+      textarea{
+        width: 100%;
+        height: 80px;
+        resize: none;
+      }
+    }
+    .kitchen {
+      width: 100%;
+      textarea{
+        width: 100%;
+        height: 80px;
+        resize: none;
+      }
+    }
+    .order_btn {
+      margin-top: 3%;
+      display: flex;
+      justify-content: center;
+
+      button{
+        height: 40px;
+        cursor: pointer;
+        color: black;
+        background-color: $primary;
+      }
+  } 
+  }
+}
+@media screen and (max-width:1200px) {
+  .container {
+    width: 80%;
+  }
+}
+@media screen and (max-width:800px) {
+  .container {
+    width: 90%;
+  }
+}
+@media screen and (max-width:710px) {
+  .container {
+    margin: 10vh auto;
+    .form {
+      width: 100%;
+      .products {
+        &_info {
+          font-size: 17px;
+          flex-direction: column;
+        }
+      }
+  
+      .cutleries {
+        flex-direction: column;
+        select {
+          width: 100%;
+        }
+      }
+  
+      .delivery {
+        width: 100%;
+        flex-direction: column;
+        justify-content: centert;
+        align-items: center;
+      }
+  
+      .row {
+        flex-direction: column;
+  
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

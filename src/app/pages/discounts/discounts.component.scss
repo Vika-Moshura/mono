@@ -1,0 +1,102 @@
+@import '../../shared/styles/variables';
+
+.container {
+  margin-top: 10vh;
+
+  .line {
+    height: 5px;
+    width: 100px;
+    background-color: $primary;
+    border-radius: 30%;
+    margin: 0 auto;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+  }
+
+  .discounts {
+    width: 100%;
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .discount {
+      width: 40%;
+      border: 1px solid transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      img{
+        width: 90%;
+        height: 300px;
+      }
+      h3 {
+        margin: 3%;
+      }
+
+      &:hover h3 {
+        color: $primary;
+      }
+
+      .border {
+        margin: 3%;
+        height: 5px;
+        width: 92%;
+        background-color: $primary;
+      }
+
+      .more {
+        background-color: $primary;
+        width: 40%;
+        text-align: center;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $primary;
+        border-radius: 15%;
+        text-decoration: none;
+        &:hover{
+            background-color: white;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:1000px) {
+  .container {
+    .discounts {
+      flex-direction: column;
+      .discount {
+        width: 80%;
+        margin: 10px;
+        img{
+          width: 100%;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:600px) {
+  .container {
+    .discounts {
+      .discount {
+        width: 90%;
+        margin: 10px;
+        img{
+          width: 100%;
+          height: 200px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+app/
+components/
+    header.component
+    footer.component
+pages/
+    home.component
+    discounts.component
+    rolls.component
+    sets.component
+    drinks.component
+    sauces.component
+    delivery
+    about
+    discount    
+    checkout
+shared/
+    styles/
+        variables.scss
+        mixins.scss
+        base.scss
+    interfaces/
+    pipes/
+    directives/
+    guards/
+    services/        

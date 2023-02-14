@@ -1,0 +1,18 @@
+<div class="info">
+  <form class="form" [formGroup]="userUpdateForm" (ngSubmit)="updateUser()">
+    <p><span>1</span> <b>Особисті дані</b> </p>
+    <div class="wrapper">
+      <input type="text" formControlName="firstName" placeholder="Ваше ім'я">
+      <input type="text" formControlName="lastName" placeholder="Ваше прізвище">
+    </div>
+    <input type="tel" formControlName="phoneNumber" placeholder="Ваш номер телефону">
+    <input type="email" formControlName="email" placeholder="Ваше email">
+    <div class="address">
+      <p><span>2</span> <b>Адреси</b> </p>
+      <div class="buttons">
+        <button class="address_+"> <b>ДОДАТИ АДРЕСУ</b> </button>
+        <button type="submit" [disabled]="userUpdateForm.invalid" class="changes_save"> <b>ЗБЕРЕГТИ ЗМІНИ</b> </button>
+      </div>
+    </div>
+  </form>
+</div>

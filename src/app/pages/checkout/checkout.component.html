@@ -1,0 +1,89 @@
+<div class="container">
+  <form class="form" [formGroup]="orderForm" (ngSubmit)="order()">
+    <h1>Оформити замовлення</h1>
+    <div class="products">
+      <div class="products_info" *ngFor="let product of basket">
+        <div> <img [src]="product.imagePath" width="120px" height="70px" [alt]="product.name"></div>
+        <div class="name"> {{product.name}}</div>
+        <div class="wrapper">
+          <div class="addition">
+            <span class="minus" (click)="addProduct(product, false)">-</span>
+            <input type="text" [value]="product.count">
+            <span class="plus" (click)="addProduct(product, true)">+</span>
+          </div>
+          <p>{{product.price* product.count}} грн</p>
+          <div class="bin" (click)="deleteAllFromBasket(product)"><i class="uil uil-trash"></i></div>
+        </div>
+      </div>
+      <p class="total">До оплати: <b>{{total}}</b> грн</p>
+    </div>
+    <h2>1 Оберіть кількість приборів</h2>
+    <div class="cutleries">
+      <select formControlName="cutleries">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <select formControlName="handlers">
+        <option value="Навчальні тримачі">Навчальні тримачі</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+      </select>
+    </div>
+    <h2>2 Спосіб оплати</h2>
+    <div class="payment">
+      <input type="radio" name="payment" id="cash" value="Оплата готівкою" formControlName="payment"><label
+        for="cash">Оплата
+        готівкою</label>
+      <input type="radio" name="payment" id="card" value="Безготівкова оплата" formControlName="payment"><label
+        for="card">Безготівкова
+        оплата</label>
+    </div>
+    <h2>3 Спосіб доставки</h2>
+    <div class="delivery">
+      <input type="radio" name="delivery" id="cour" value="Доставка" formControlName="delivery"><label
+        for="cour">Доставка (У зв’язку
+        із відключенням світла, якщо ліфт не працює
+        кур’єр піднімається тільки до п’ятого поверху. Дякуємо за розуміння)</label>
+      <input type="radio" name="delivery" id="self" value="Самовивіз" formControlName="delivery"><label
+        for="self">Самовивіз ( "Запечені моно
+        макі з лососем" в подарунок )</label>
+      <input type="radio" name="delivery" id="advance" value="Заздалегідь" formControlName="delivery"><label
+        for="advance">Заздалегідь</label>
+    </div>
+    <div class="row">
+      <input type="text" placeholder="Ім'я*" formControlName="name">
+      <input type="tel" placeholder="Номер телефону*" formControlName="phone_number">
+    </div>
+    <div class="row">
+      <input type="text" placeholder="Вулиця*" formControlName="street">
+      <input type="text" placeholder="Будинок*" formControlName="house">
+    </div>
+    <div class="row">
+      <input type="text" placeholder="Під'їзд" formControlName="entrance">
+      <input type="text" placeholder="Квартира" formControlName="flat">
+    </div>
+    <div class="comments">
+      <input type="checkbox" name="comment" id="call" value="Зателефонуйте" formControlName="comments"><label
+        for="call">Зателефонуйте мені для уточнення деталей</label>
+      <input type="checkbox" name="comment" id="comment" value="Коментар" formControlName="comments" #comment><label
+        for="comment">Додати коментар</label>
+      <input type="checkbox" name="comment" id="kitchen" value="Кухня" formControlName="comments" #kitchen><label
+        for="kitchen">Додати коментар для кухні</label>
+    </div>
+    <div class="comment" *ngIf="comment.checked">
+      <textarea name="comment" placeholder="Ваш коментар" formControlName="comment"></textarea>
+    </div>
+    <div class="kitchen" *ngIf="kitchen.checked">
+      <textarea name="kitchen" placeholder="Ваш коментар кухні" formControlName="kitchen"></textarea>
+    </div>
+    <div class="row">
+      <img src="/assets/images/Screenshot_2.png" alt="" width="100%" height="100%">
+    </div>
+    <div class="order_btn">
+      <button type="submit" [disabled]="orderForm.invalid" (click)="order()"> <b>ОФОРМИТИ ЗАМОВЛЕННЯ</b> </button>
+    </div>
+  </form>
+</div>

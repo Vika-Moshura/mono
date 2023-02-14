@@ -1,0 +1,13 @@
+<div class="bread_crumbs">
+    <a [routerLink]="[ '/home' ]" routerLinkActive="active">Головна</a>
+    <a [routerLink]="[ '/discounts' ]" routerLinkActive="active"> Акції</a>
+</div>
+<div class="discount">
+    <div class="wrapper">
+        <div class="line"></div>
+        <h1>{{discount.title}}</h1>
+    </div>
+    <div class="info">
+        {{discount.description}}
+    </div>
+  </div>

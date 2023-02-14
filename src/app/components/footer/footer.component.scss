@@ -1,0 +1,119 @@
+@import '../../shared/styles/variables';
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  font-size: 13px;
+
+  .line {
+    width: 100%;
+    height: 3%;
+    background-color: $primary;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+
+    div {
+      width: 20%;
+    }
+
+    .sect1 {
+      p {
+        color: gray;
+      }
+
+    }
+
+    .sect2 {
+      display: flex;
+      justify-content: space-between;
+
+      *:hover {
+        color: $primary;
+        cursor: pointer;
+      }
+    }
+
+    .sect8,
+    .sect3,
+    .sect4 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      a {
+        color: black;
+        text-decoration: none;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    .sect6 {
+      display: inline-flex;
+      justify-content: space-around;
+
+      img {
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid lightgrey;
+      }
+    }
+
+    .sect7 {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: $primary;
+        border: 2px solid $primary;
+
+        &:hover {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:1340px) {
+  .footer {
+    margin-bottom: 15%;
+  }
+}
+
+@media screen and (max-width:890px) {
+  .footer {
+    height: 30vh;
+    margin-bottom: 5vh;
+    .container {
+      flex-direction: column;
+      justify-content: center;
+
+      div {
+        margin: 10px;
+      }
+
+      .sect8 {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width:802px) {
+  .footer {
+    height: 60vh;
+  }
+}

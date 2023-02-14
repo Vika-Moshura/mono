@@ -1,0 +1,12 @@
+<main class="main">
+  <aside class="menu">
+    <a [routerLink]="[ 'discounts' ]" routerLinkActive="active">Акції</a>
+    <a [routerLink]="[ 'categories' ]" routerLinkActive="active">Категорії</a>
+    <a [routerLink]="[ 'products' ]" routerLinkActive="active">Товари</a>
+    <a [routerLink]="[ 'orders' ]" routerLinkActive="active">Замовлення</a>
+    <button (click)="logOut()">ВИХІД</button>
+  </aside>
+  <div class="block">
+    <router-outlet></router-outlet>
+  </div>
+</main>
