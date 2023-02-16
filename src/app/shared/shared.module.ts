@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 // other modules
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 const MATERIAL = [
     MatDialogModule,
@@ -20,14 +19,12 @@ const MATERIAL = [
     imports: [
         ...MATERIAL,
         FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule
+        ReactiveFormsModule
     ],
     exports: [
         ...MATERIAL,
         FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule
+        ReactiveFormsModule
     ],
 })
 

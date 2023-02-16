@@ -2,11 +2,15 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { ImagesService } from './images.service';
+import { Storage } from '@angular/fire/storage';
 
 describe('Service: Images', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ImagesService]
+      providers: [
+        ImagesService,
+        {provide: Storage, useValue: {} },
+      ],
     });
   });
 

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthDialogComponent } from './auth-dialog.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Auth } from '@angular/fire/auth';
+import { Firestore } from '@angular/fire/firestore';
 
 describe('AuthDialogComponent', () => {
   let component: AuthDialogComponent;
@@ -8,7 +11,14 @@ describe('AuthDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthDialogComponent ]
+      imports:[
+        HttpClientTestingModule
+      ],
+      declarations: [ AuthDialogComponent ],
+      providers: [
+      {provide: Auth, useValue: {}},
+      {provide: Firestore, useValue: {}}
+      ],
     })
     .compileComponents();
 

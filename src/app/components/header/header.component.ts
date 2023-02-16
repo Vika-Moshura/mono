@@ -74,7 +74,6 @@ export class HeaderComponent implements OnInit {
     else if (!status && product.count > 1) {
       --product.count;
       this.deleteOneFromBasket(product)
-
     }
   }
   addToBasket(product: IProductResponse): void {
