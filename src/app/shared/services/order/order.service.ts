@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IOrderRequest, IOrderResponse } from '../../interfaces/IOrder';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class OrderService {
   constructor(
     private http: HttpClient
   ) { }
-  create(order: any): Observable<any> {
-    return this.http.post<any>(this.api.orders, order);
+
+  create(order: IOrderRequest): Observable<IOrderResponse> {
+    return this.http.post<IOrderResponse>(this.api.orders, order);
   }
 }

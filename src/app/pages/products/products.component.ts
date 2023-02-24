@@ -11,14 +11,14 @@ import { ProductService } from 'src/app/shared/services/products/product.service
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  public category!:string;
+  public category!: string;
   private eventSubscription!: Subscription;
   public userProducts: Array<IProductResponse> = [];
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private orderService:OrderService,
+    private orderService: OrderService,
 
   ) {
     this.eventSubscription = this.router.events.subscribe(event => {
@@ -29,6 +29,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
   }
   loadProducts(): void {
     this.category = this.activatedRoute.snapshot.paramMap.get('category') as string;
@@ -39,31 +40,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.eventSubscription.unsubscribe();
   }
-  addProduct(product:IProductResponse, status:boolean):void{
-    if(status){
+  addProduct(product: IProductResponse, status: boolean): void {
+    if (status) {
       ++product.count;
     }
-    else if(!status && product.count>1){
+    else if (!status && product.count > 1) {
       --product.count;
     }
   }
-  addToBasket(product:IProductResponse):void{
-    let basket:Array<IProductResponse> =[];
-    if(localStorage.length>0 && localStorage.getItem('basket')){
-      basket= JSON.parse(localStorage.getItem('basket') as string);
-      if(basket.some(prod=>prod.id===product.id)){
-        const index= basket.findIndex(prod=>prod.id===product.id);
+  addToBasket(product: IProductResponse): void {
+    let basket: Array<IProductResponse> = [];
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
+      basket = JSON.parse(localStorage.getItem('basket') as string);
+      if (basket.some(prod => prod.id === product.id)) {
+        const index = basket.findIndex(prod => prod.id === product.id);
         basket[index].count += product.count;
-      }else{
+      } else {
         basket.push(product);
-
       }
-    }else{
+    } else {
       basket.push(product);
-
     }
     localStorage.setItem('basket', JSON.stringify(basket));
-    product.count=1;
+    product.count = 1;
     this.orderService.changeBasket.next(true);
   }
 }

@@ -47,7 +47,6 @@ export class CheckoutComponent implements OnInit {
     else if (!status && product.count > 1) {
       --product.count;
       this.deleteOneFromBasket(product)
-
     }
   }
   addToBasket(product: IProductResponse): void {
@@ -122,7 +121,7 @@ export class CheckoutComponent implements OnInit {
       localStorage.removeItem("basket");
       this.basket = [];
       this.total = 0;
-      this.initOrderForm();
+      this.orderForm.reset();
       this.orderService.changeBasket.next(true);
     });
   }

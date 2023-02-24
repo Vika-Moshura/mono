@@ -9,46 +9,43 @@ import { ProductService } from 'src/app/shared/services/products/product.service
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public userProducts:Array<IProductResponse>=[];
+  public userProducts: Array<IProductResponse> = [];
   constructor(
     private productService: ProductService,
-    private orderService:OrderService,
-
-    ) { }
+    private orderService: OrderService,
+  ) { }
 
   ngOnInit(): void {
     this.loadProducts();
   }
-  loadProducts():void{
+  loadProducts(): void {
     this.productService.getAllByCategory('rolls').subscribe(data => {
       this.userProducts = data;
     })
   }
-  addProduct(product:IProductResponse, status:boolean):void{
-    if(status){
+  addProduct(product: IProductResponse, status: boolean): void {
+    if (status) {
       ++product.count;
     }
-    else if(!status && product.count>1){
+    else if (!status && product.count > 1) {
       --product.count;
     }
   }
-  addToBasket(product:IProductResponse):void{
-    let basket:Array<IProductResponse> =[];
-    if(localStorage.length>0 && localStorage.getItem('basket')){
-      basket= JSON.parse(localStorage.getItem('basket') as string);
-      if(basket.some(prod=>prod.id===product.id)){
-        const index= basket.findIndex(prod=>prod.id===product.id);
+  addToBasket(product: IProductResponse): void {
+    let basket: Array<IProductResponse> = [];
+    if (localStorage.length > 0 && localStorage.getItem('basket')) {
+      basket = JSON.parse(localStorage.getItem('basket') as string);
+      if (basket.some(prod => prod.id === product.id)) {
+        const index = basket.findIndex(prod => prod.id === product.id);
         basket[index].count += product.count;
-      }else{
+      } else {
         basket.push(product);
-
       }
-    }else{
+    } else {
       basket.push(product);
-
     }
     localStorage.setItem('basket', JSON.stringify(basket));
-    product.count=1;
+    product.count = 1;
     this.orderService.changeBasket.next(true);
   }
 

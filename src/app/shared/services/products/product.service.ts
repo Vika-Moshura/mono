@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IProductRequest, IProductResponse } from '../../interfaces/IProduct';
 
@@ -32,7 +32,7 @@ export class ProductService implements Resolve<IProductResponse>{
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.api.products}/${id}`);
   }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): IProductResponse | Observable<IProductResponse> | Promise<IProductResponse> {
-    return this.http.get<IProductResponse>(`${this.api.products}/${route.paramMap.get('id')}`);
+  resolve(route: ActivatedRouteSnapshot): Promise<IProductResponse> {
+    return firstValueFrom(this.http.get<IProductResponse>(`${this.api.products}/${route.paramMap.get('id')}`));
   }
 }

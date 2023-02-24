@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrder } from 'src/app/shared/interfaces/IOrder';
+import { IOrderResponse } from 'src/app/shared/interfaces/IOrder';
 
 @Component({
   selector: 'app-cabinet-orders',
@@ -7,7 +7,7 @@ import { IOrder } from 'src/app/shared/interfaces/IOrder';
   styleUrls: ['./cabinet-orders.component.scss']
 })
 export class CabinetOrdersComponent implements OnInit {
-  public userOrders!:IOrder[];
+  public userOrders!:IOrderResponse[];
   constructor() { }
 
   ngOnInit(): void {

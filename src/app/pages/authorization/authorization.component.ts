@@ -4,7 +4,6 @@ import { doc, docData, Firestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthDialogComponent } from 'src/app/components/auth-dialog/auth-dialog.component';
 import { ROLE } from 'src/app/shared/constants/ROLE.enum';
 import { AccountService } from 'src/app/shared/services/account/account.service';
 
@@ -59,6 +58,4 @@ export class AuthorizationComponent implements OnInit {
       console.error(e);
     })
   }
-
-
 }

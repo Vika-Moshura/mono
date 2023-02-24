@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IDiscountRequest, IDiscountResponse } from '../../interfaces/IDiscount';
 
@@ -10,14 +10,15 @@ import { IDiscountRequest, IDiscountResponse } from '../../interfaces/IDiscount'
 })
 export class DiscountsService implements Resolve<IDiscountResponse>{
   private url = environment.BACKEND_URL;
-  private api = { discounts: `${this.url}/discounts` }
+  public api = { discounts: `${this.url}/discounts` }
   constructor(
-    private http: HttpClient
+    public http: HttpClient
   ) { }
+
   getAll(): Observable<IDiscountResponse[]> {
     return this.http.get<IDiscountResponse[]>(this.api.discounts);
   }
-  getOne(id:number):Observable<IDiscountResponse>{
+  getOne(id: number): Observable<IDiscountResponse> {
     return this.http.get<IDiscountResponse>(`${this.api.discounts}/${id}`);
   }
 
@@ -32,7 +33,7 @@ export class DiscountsService implements Resolve<IDiscountResponse>{
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.api.discounts}/${id}`);
   }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): IDiscountResponse | Observable<IDiscountResponse> | Promise<IDiscountResponse> {
-    return this.http.get<IDiscountResponse>(`${this.api.discounts}/${route.paramMap.get('id')}`);
+  resolve(route: ActivatedRouteSnapshot): Promise<IDiscountResponse> {
+    return firstValueFrom(this.http.get<IDiscountResponse>(`${this.api.discounts}/${route.paramMap.get('id')}`));
   }
 }

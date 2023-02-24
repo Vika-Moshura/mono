@@ -17,16 +17,18 @@ export class AboutComponent implements OnInit {
   }
   toggle(num: string): void {
     if (num == 'first') {
-      this.opened_first ? this.opened_first = false : this.opened_first = true;
+      this.opened_first = !this.opened_first;
     }
     else if (num == 'second') {
-      this.opened_second ? this.opened_second = false : this.opened_second = true;
+      this.opened_second = !this.opened_second;
+
     }
     else if (num == 'third') {
-      this.opened_third ? this.opened_third = false : this.opened_third = true;
+      this.opened_third = !this.opened_third;
+
     }
     else if (num == 'fourth') {
-      this.opened_fourth ? this.opened_fourth = false : this.opened_fourth = true;
+      this.opened_fourth = !this.opened_fourth;
     }
   }
 }

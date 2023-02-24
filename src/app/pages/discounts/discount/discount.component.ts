@@ -11,7 +11,6 @@ import { DiscountsService } from 'src/app/shared/services/discounts/discounts.se
 export class DiscountComponent implements OnInit {
   public discount!:IDiscountResponse;
   constructor(
-    private discountService:DiscountsService,
     private activatedRoute:ActivatedRoute
   ) { }
 

@@ -7,7 +7,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports:[
@@ -26,7 +25,7 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('it should change total', () => {
+  it('should change total', () => {
     const fakeBasket=[
         {
           category: {
@@ -53,7 +52,7 @@ describe('HeaderComponent', () => {
     expect(component.number).toBe(1);
   });
 
-  it('it should toddle basket', () => {
+  it('should toddle basket', () => {
     component.openedBasket = false;
     spyOn(component, 'toddleBasket').and.callThrough();
     component.toddleBasket();
@@ -65,7 +64,7 @@ describe('HeaderComponent', () => {
     expect(component.openedBasket).toBe(false);
   });
 
-  it('it should close basket', () => {
+  it('should close basket', () => {
     component.openedBasket = false;
     spyOn(component, 'closeBasket').and.callThrough();
     component.closeBasket();
@@ -77,7 +76,7 @@ describe('HeaderComponent', () => {
     expect(component.openedBasket).toBe(false);
   });
 
-  it('it should toddle burger', () => {
+  it('should toddle burger', () => {
     component.burgerIsOpen = false;
     spyOn(component, 'burger').and.callThrough();
     component.burger();
@@ -89,7 +88,7 @@ describe('HeaderComponent', () => {
     expect(component.burgerIsOpen).toBe(false);
   });
 
-  it('it should close burger', () => {
+  it('should close burger', () => {
     component.burgerIsOpen = true;
     spyOn(component, 'closeBurger').and.callThrough();
     component.closeBurger();
@@ -97,7 +96,7 @@ describe('HeaderComponent', () => {
     expect(component.burgerIsOpen).toBe(false);
   });
 
-  it('it should close burger', () => {
+  it('should close burger', () => {
     component.burgerIsOpen = true;
     spyOn(component, 'closeBurger').and.callThrough();
     component.closeBurger();
@@ -105,7 +104,7 @@ describe('HeaderComponent', () => {
     expect(component.burgerIsOpen).toBe(false);
   });
 
-  it ('it should + and - a product in the basket', () => {
+  it ('should + and - a product in the basket', () => {
     const fakeStatus = true;
     const fakeStatus2 = false;
     const fakeProduct = {
@@ -137,7 +136,7 @@ describe('HeaderComponent', () => {
     expect(component.deleteOneFromBasket).toHaveBeenCalled();
   });
 
-  it ('it should add 1 to basket', () =>{
+  it ('should add 1 to basket', () =>{
     const fakeProduct = {
       category: {
         id:1,
@@ -157,7 +156,8 @@ describe('HeaderComponent', () => {
     spyOn(component, 'addToBasket').and.callThrough();
     component.addToBasket(fakeProduct);
     expect(component.addToBasket).toHaveBeenCalled();
-    expect(fakeProduct.count).toBe(3);
+    expect(window.localStorage.getItem('basket')).toBeTruthy();
+    expect(fakeProduct.count).toBe(2);
   })
 
 });

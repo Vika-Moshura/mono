@@ -9,3 +9,8 @@ export interface ILogin {
     address:string,
     orders:Array<any>
 }
+
+export interface ILoginRequest{
+    email:string,
+    password:string,
+}
