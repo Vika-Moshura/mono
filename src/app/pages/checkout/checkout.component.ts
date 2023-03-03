@@ -117,7 +117,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   order(): void {
-    this.orderService.create(this.orderForm.value).subscribe(() => {
+    this.orderService.createFirebase(this.orderForm.value).then(() => {
       localStorage.removeItem("basket");
       this.basket = [];
       this.total = 0;

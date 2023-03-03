@@ -16,7 +16,7 @@ export class AdminDiscountsComponent implements OnInit {
   public editStatus = false;
   public isUploaded = false;
   public uploadPercent: number = 0;
-  private currentDiscountId = 0;
+  private currentDiscountId!: string | number;
   constructor(
     private discountService: DiscountsService,
     private fb: FormBuilder,
@@ -40,23 +40,23 @@ export class AdminDiscountsComponent implements OnInit {
     })
   }
   loadDiscounts(): void {
-    this.discountService.getAll().subscribe(data => {
-      this.adminDiscounts = data;
+    this.discountService.getAllFirebase().subscribe(data => {
+      this.adminDiscounts = data as IDiscountResponse[];
     })
   }
   addDiscount(): void {
     if (this.editStatus) {
-      this.discountService.update(this.discountForm.value, this.currentDiscountId).subscribe(() => {
+      this.discountService.updateFirebase(this.discountForm.value, this.currentDiscountId as string).then(() => {
         this.loadDiscounts();
       })
     }
     else {
-      this.discountService.create(this.discountForm.value).subscribe(() => {
+      this.discountService.createFirebase(this.discountForm.value).then(() => {
         this.loadDiscounts();
       })
     }
     this.editStatus = false;
-    this.discountForm.reset({date:new Date()});
+    this.discountForm.reset({ date: new Date() });
     this.isUploaded = false;
     this.uploadPercent = 0;
     this.isAdding = false;
@@ -75,7 +75,7 @@ export class AdminDiscountsComponent implements OnInit {
   }
 
   deleteDiscount(discount: IDiscountResponse): void {
-    this.discountService.delete(discount.id).subscribe(() => {
+    this.discountService.deleteFirebase(discount.id as string).then(() => {
       this.loadDiscounts();
     })
   }

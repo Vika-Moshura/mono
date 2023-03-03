@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
     this.loadProducts();
   }
   loadProducts(): void {
-    this.productService.getAllByCategory('rolls').subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllByCategoryFirebase('rolls').then(data => {
+      this.userProducts = data as IProductResponse[];
     })
   }
   addProduct(product: IProductResponse, status: boolean): void {

@@ -33,8 +33,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
   loadProducts(): void {
     this.category = this.activatedRoute.snapshot.paramMap.get('category') as string;
-    this.productService.getAllByCategory(this.category).subscribe(data => {
-      this.userProducts = data;
+    this.productService.getAllByCategoryFirebase(this.category).then(data => {
+      this.userProducts = data as IProductResponse[];
     })
   }
   ngOnDestroy(): void {

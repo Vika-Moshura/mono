@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let discount of adminDiscounts">
-      <td>{{discount.date | date:'dd.MM.YYYY'}}</td>
+      <td>{{discount.date.toDate() | date:'dd.MM.YYYY'}}</td>
       <td>{{discount.name}}</td>
       <td>{{discount.title}}</td>
       <td>{{discount.description}}</td>

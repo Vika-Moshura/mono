@@ -1,21 +1,24 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { IOrderRequest, IOrderResponse } from '../../interfaces/IOrder';
+import { addDoc, CollectionReference, DocumentReference, Firestore } from '@angular/fire/firestore';
+import { Subject } from 'rxjs';
+import { IOrderRequest } from '../../interfaces/IOrder';
+import { collection, DocumentData } from '@firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  private url = environment.BACKEND_URL;
-  private api = { orders: `${this.url}/orders` }
   public changeBasket = new Subject<boolean>;
-  constructor(
-    private http: HttpClient
-  ) { }
+  private orderCollection!: CollectionReference<DocumentData>;
 
-  create(order: IOrderRequest): Observable<IOrderResponse> {
-    return this.http.post<IOrderResponse>(this.api.orders, order);
-  }
+  constructor(
+    private afs: Firestore
+
+  ) {
+    this.orderCollection = collection(this.afs, 'orders')
+   }
+
+  createFirebase(order: IOrderRequest): Promise<DocumentReference<DocumentData>> {
+    return addDoc(this.orderCollection, order);
+}
 }

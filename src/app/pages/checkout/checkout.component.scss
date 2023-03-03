@@ -116,84 +116,119 @@
         cursor: pointer;
       }
     }
+
     .comments {
       margin: 3% 0;
       width: 100%;
+
       label {
         margin-right: 3%;
         cursor: pointer;
 
       }
     }
+
     .comment {
       width: 100%;
-      textarea{
+
+      textarea {
         width: 100%;
         height: 80px;
         resize: none;
       }
     }
+
     .kitchen {
       width: 100%;
-      textarea{
+
+      textarea {
         width: 100%;
         height: 80px;
         resize: none;
       }
     }
+
+    .maps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .small_map {
+        display: none;
+      }
+    }
+
     .order_btn {
       margin-top: 3%;
       display: flex;
       justify-content: center;
 
-      button{
+      button {
         height: 40px;
         cursor: pointer;
         color: black;
         background-color: $primary;
       }
-  } 
+    }
   }
 }
+
 @media screen and (max-width:1200px) {
   .container {
     width: 80%;
   }
 }
+
 @media screen and (max-width:800px) {
   .container {
     width: 90%;
+
+    .form {
+      .maps {
+        .big_map {
+          display: none;
+        }
+
+        .small_map {
+          display: block;
+        }
+      }
+    }
   }
 }
+
 @media screen and (max-width:710px) {
   .container {
     margin: 10vh auto;
+
     .form {
       width: 100%;
+
       .products {
         &_info {
           font-size: 17px;
           flex-direction: column;
         }
       }
-  
+
       .cutleries {
         flex-direction: column;
+
         select {
           width: 100%;
         }
       }
-  
+
       .delivery {
         width: 100%;
         flex-direction: column;
         justify-content: centert;
         align-items: center;
       }
-  
+
       .row {
         flex-direction: column;
-  
+
         input {
           width: 100%;
         }

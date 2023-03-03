@@ -17,11 +17,11 @@ export class AdminCategoriesComponent implements OnInit {
   public editID!: number;
   public categoryForm!: FormGroup;
   public isUploaded = false;
-  private currentCategoryId = 0;
+  private currentCategoryId!: string | number;
   constructor(
     private categoryService: CategoryService,
     private fb: FormBuilder,
-    private imagesService:ImagesService
+    private imagesService: ImagesService
   ) { }
 
   ngOnInit(): void {
@@ -29,33 +29,32 @@ export class AdminCategoriesComponent implements OnInit {
     this.loadCategories();
   }
   addition(): void {
-    this.isAdding =!this.isAdding;
+    this.isAdding = !this.isAdding;
   }
   initCategoryForm(): void {
     this.categoryForm = this.fb.group({
       name: [null, Validators.required],
       path: [null, Validators.required],
       imagePath: [null, Validators.required],
-      id:[null]
     })
   }
   loadCategories(): void {
-    this.categoryService.getAll().subscribe(data => {
-      this.adminCategories = data;      
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
     })
   }
   addCategory(): void {
     if (this.editStatus) {
-      this.categoryService.update(this.categoryForm.value, this.currentCategoryId).subscribe(() => {
+      this.categoryService.updateFirebase(this.categoryForm.value, this.currentCategoryId as string).then(() => {
         this.loadCategories();
       })
     }
     else {
-      this.categoryService.create(this.categoryForm.value).subscribe(() => {
+      this.categoryService.createFirebase(this.categoryForm.value).then(() => {
         this.loadCategories();
       })
     }
-    this.editStatus = false;    
+    this.editStatus = false;
     this.categoryForm.reset();
     this.isUploaded = false;
     this.isAdding = false;
@@ -73,7 +72,7 @@ export class AdminCategoriesComponent implements OnInit {
   }
 
   deleteCategory(category: ICategoryResponse): void {
-    this.categoryService.delete(category.id).subscribe(() => {
+    this.categoryService.deleteFirebase(category.id as string).then(() => {
       this.loadCategories();
     })
   }
@@ -92,7 +91,7 @@ export class AdminCategoriesComponent implements OnInit {
     })
   }
 
-  
+
   deleteImage(): void {
     this.imagesService.deleteImage(this.valueByControl('imagePath')).then(() => {
       console.log("File deleted");

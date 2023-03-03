@@ -18,7 +18,7 @@ export class AdminProductsComponent implements OnInit {
   public adminProducts: IProductResponse[] = [];
   public productForm!: FormGroup;
   public isUploaded = false;
-  private currentProductId = 0;
+  private currentProductId!: string | number;
 
   constructor(
     private categoryService: CategoryService,
@@ -44,41 +44,41 @@ export class AdminProductsComponent implements OnInit {
       weight: [null, Validators.required],
       price: [null, Validators.required],
       imagePath: [null, Validators.required],
-      count: [1]                
+      count: [1]
     })
   }
   loadCategories(): void {
-    this.categoryService.getAll().subscribe(data => {
-      this.adminCategories = data;
+    this.categoryService.getAllFirebase().subscribe(data => {
+      this.adminCategories = data as ICategoryResponse[];
       this.productForm.patchValue({
-        category:this.adminCategories[0].id
+        category: this.adminCategories[0].id
       })
     })
-    
+
   }
   loadProducts(): void {
-    this.productService.getAll().subscribe(data => {
-      this.adminProducts = data;
+    this.productService.getAllFirebase().subscribe(data => {
+      this.adminProducts = data as IProductResponse[];
     })
   }
   addProduct(): void {
     if (this.editStatus) {
-      this.productService.update(this.productForm.value, this.currentProductId).subscribe(() => {
+      this.productService.updateFirebase(this.productForm.value, this.currentProductId as string).then(() => {
         this.loadProducts();
       })
     }
     else {
-      this.productService.create(this.productForm.value).subscribe(() => {
+      this.productService.createFirebase(this.productForm.value).then(() => {
         this.loadProducts();
       })
     }
-    this.editStatus = false;    
+    this.editStatus = false;
     this.productForm.reset();
     this.isUploaded = false;
     this.isAdding = false;
   }
   deleteProduct(product: IProductResponse): void {
-    this.productService.delete(product.id).subscribe(() => {
+    this.productService.deleteFirebase(product.id as string).then(() => {
       this.loadProducts();
     })
   }
@@ -93,7 +93,7 @@ export class AdminProductsComponent implements OnInit {
       imagePath: product.imagePath,
       count: 1
     });
-    this.isUploaded=true;
+    this.isUploaded = true;
     this.editStatus = true;
     this.currentProductId = product.id;
     this.isUploaded = true;
@@ -120,7 +120,7 @@ export class AdminProductsComponent implements OnInit {
       })
     })
   }
-  valueByControl(control: string): string{
+  valueByControl(control: string): string {
     return this.productForm.get(control)?.value;
   }
 }
